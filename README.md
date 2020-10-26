@@ -40,7 +40,3 @@ The only requirement in order to run it is Python3.
 ## 🤝 If you want to contribute:
 - Assert your pull request pass all the automated tests and send it!
 > Note: The server must be running at 127.0.0.1:8080 in order to be tested.
-
-&nbsp;
-# Consider leaving a ⭐!
-
