@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <meta content="utf-8" http-equiv="encoding">
+
+        <style>
+            :root {
+                --txt: #3d9b1d;
+            }
+
+            html {
+                font-family: 'Arial', 'Helvetica', 'sans-serif';
+            }
+
+            body {
+                background-color: #04331d;
+            }
+
+            pre {
+                padding: 20px 50px;
+                color: var(--txt);
+                font-size: 14px;
+            }
+
+            textarea {
+                color: var(--txt);
+                font-size: 14px;
+                padding: 20px 50px;
+
+                background: transparent;
+                border: none;
+
+                resize: none;
+            }
+
+            textarea:focus {
+                outline: none;
+            }
+
+            .button {
+                background-color: #117709;
+                border: 2px solid #0d501a;
+                cursor: pointer;
+                color: #7cf36c;
+                font-size: 15px;
+                padding: 8px 15px;
+                text-decoration: none;
+
+                margin: 10px 0 -10px 30px;
+            }
+
+            .uns {
+                user-select: none;
+            }
+
+            h1, h2 {
+                display: inline-block;
+                color: var(--txt);
+
+                margin-bottom: 0;
+            }
+
+            h1 {
+                padding-left: 50px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1 class="uns">MinimalPaste - </h1><h2 class="uns">&nbsp;&nbsp;A minimalist pastebin service.</h2>
+{%}
+        <script>
+            const textArea = document.querySelector("textarea");
+
+            if (textArea) {
+                textArea.focus();
+            }
+
+            const validatePaste = () => {
+                return Boolean(textArea.value);
+            }
+        </script>
+    </body>
+</html>
