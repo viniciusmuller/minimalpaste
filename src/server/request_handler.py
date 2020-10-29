@@ -3,10 +3,7 @@ from urllib.parse import parse_qsl
 from typing import Tuple
 
 from utils.templater import create_template
-from database.database import Database
 
-
-db = Database()
 
 class HTTPRequestHandler(BaseHTTPRequestHandler):
     """Custom class to handle POST and GET requests to the server."""
@@ -54,12 +51,12 @@ class HTTPRequestHandler(BaseHTTPRequestHandler):
             self.wfile.write(page.encode())
 
         # Existing endpoint
-        elif endpoint in db.endpoints:
+        elif endpoint in self.server.db:
             self._set_headers()
             # Retrieving the content from the database and feeding it
             # into the create_template function to create a HTML page
             # containing the content
-            content = db.read_content(endpoint)
+            content = self.server.db[endpoint]
             page = create_template(content)
             # Serving the page
             self.wfile.write(page.encode())
@@ -97,7 +94,7 @@ class HTTPRequestHandler(BaseHTTPRequestHandler):
 
         # Supported POST request, add to the database
         elif content:
-            paste_url = db.create_paste(content)
+            paste_url = self.server.db.create_paste(content)
 
             # Redirect client to new paste URL
             self._set_headers(status_code=301,
