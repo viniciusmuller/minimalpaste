@@ -92,7 +92,7 @@ class HTTPRequestHandler(BaseHTTPRequestHandler):
         elif content and self.path != "/paste":
             self.send_error(501, "POST requests are only allowed on /paste")
 
-        # Supported POST request, add to the database
+        # Supported POST request, add to the database 
         elif content:
             paste_url = self.server.db.create_paste(content)
 
