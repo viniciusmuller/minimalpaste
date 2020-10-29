@@ -98,3 +98,9 @@ class Database:
 
         self.endpoints = {e[0] for e in self.cursor.fetchall()}
         logger.info(f"{len(self.endpoints)} entries on the database!")
+    
+    def __contains__(self, item) -> bool:
+        return item in self.endpoints
+    
+    def __getitem__(self, id) -> Optional[str]:
+        return self.read_content(id) 
